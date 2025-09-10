@@ -1,0 +1,1 @@
+export { AllObjectsPage } from "./AllObjectsPage";
