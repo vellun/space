@@ -1,0 +1,10 @@
+@use "styles/variables" as *;
+
+.navbar {
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    color: $text-primary;
+  }
+}

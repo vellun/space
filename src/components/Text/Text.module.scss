@@ -1,0 +1,55 @@
+@use "styles/variables" as *;
+@use "styles/mixins" as mixins;
+
+.text {
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: inherit;
+
+  &_color {
+    &-accent {
+      color: $brand;
+    }
+
+    &-secondary {
+      color: $text-secondary;
+    }
+
+    &-primary {
+      color: $text-primary;
+    }
+  }
+
+  &_view {
+    @for $i from 12 through 24 {
+      @if $i % 2 == 0 {
+        &-p-#{$i} {
+          font-size: #{$i}px;
+          line-height: #{$i + 4}px;
+        }
+      }
+    }
+    &-title {
+      font-size: 44;
+      line-height: 48;
+      text-align: center;
+    }
+
+    &-button {
+      font-size: 16;
+      margin: 0;
+    }
+  }
+
+  &_font {
+    &-normal {
+      font-weight: 400;
+    }
+    &-medium {
+      font-weight: 500;
+    }
+    &-bold {
+      font-weight: 700;
+    }
+  }
+}

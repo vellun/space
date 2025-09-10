@@ -13,7 +13,8 @@
       "config": ["config/*"],
       "styles": ["styles/*"],
       "App": ["App/*"],
-      "pages": ["App/pages/*"]
+      "pages": ["App/pages/*"],
+      "assets": ["assets/*"]
     },
 
     "moduleResolution": "bundler",

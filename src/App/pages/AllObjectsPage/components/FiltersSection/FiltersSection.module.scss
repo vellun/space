@@ -1,0 +1,22 @@
+@use "styles/mixins" as mixins;
+@use "styles/variables" as *;
+
+.section {
+  @include mixins.flex;
+  gap: 132px;
+
+  margin-left: 60px;
+  margin-right: 60px;
+
+  &__search {
+    @include mixins.flex;
+
+    justify-content: space-between;
+    gap: $space-l;
+    width: 837px;
+  }
+
+  &__filter {
+    width: 315px;
+  }
+}
