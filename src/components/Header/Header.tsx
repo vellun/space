@@ -1,5 +1,4 @@
 import headerImage from "assets/images/header-image-light.png";
-
 import cn from "classnames";
 
 import styles from "./Header.module.scss";

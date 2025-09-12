@@ -14,7 +14,7 @@ export const FiltersSection: React.FC<FiltersProps> = ({ className }) => {
   return (
     <div className={cn(styles.section, className)}>
       <div className={styles.section__search}>
-        <Input placeholder="Find an astronomical object" value="" onChange={() => {}} />
+        <Input placeholder="Find an astronomical object" onChange={() => ""} />
         <Button onClick={() => ""}>
           <img src={searchIcon} alt="Search Icon" width="24px" height="24px" />
         </Button>
@@ -23,7 +23,7 @@ export const FiltersSection: React.FC<FiltersProps> = ({ className }) => {
         className={styles.section__filter}
         options={astroObjectsCategories}
         value={[]}
-        onChange={() => {}}
+        onChange={() => ""}
         getTitle={(value: Option[]) =>
           value.length !== 0 ? value[0].value : "Select object category"
         }
