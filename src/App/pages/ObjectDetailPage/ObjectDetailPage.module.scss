@@ -32,7 +32,7 @@
   }
 
   &__description {
-    background-color: #dbd8e5;
+    background-color: rgba(219, 216, 229, 0.6);
     padding: $elements-margin;
     border-radius: $border-radius;
   }
@@ -57,6 +57,7 @@
 .title {
   display: flex;
   flex-direction: column;
+  padding-left: $space-xl;
   gap: $elements-margin-s;
   margin-bottom: $elements-margin;
 }
@@ -78,6 +79,10 @@
   }
   .title {
     text-align: center;
+    margin-bottom: $elements-margin-s;
+    padding: 0;
+  }
+  .info{
     margin-bottom: $elements-margin-s;
   }
   .aa {

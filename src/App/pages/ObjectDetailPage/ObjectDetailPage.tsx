@@ -44,13 +44,13 @@ export const ObjectDetailPage = () => {
                   <Text
                     className={styles["info-key"]}
                     tag="div"
-                    view="p-24"
+                    view="p-22"
                     weight="medium"
                     color="semi"
                   >
                     {key}
                   </Text>
-                  <Text className={styles["info-value"]} tag="div" view="p-24" weight="medium">
+                  <Text className={styles["info-value"]} tag="div" view="p-22" weight="medium">
                     {value}
                   </Text>
                 </>

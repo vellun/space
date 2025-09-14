@@ -55,7 +55,7 @@ export const Pagination = () => {
               })}
               onClick={() => handleClick(value)}
             >
-              <Text className={styles.pagination__numbers__text} color="primary" view="p-18">
+              <Text className={styles.pagination__numbers__text} view="p-18">
                 {value}
               </Text>
             </button>
