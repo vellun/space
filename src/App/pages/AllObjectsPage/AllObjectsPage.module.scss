@@ -7,7 +7,7 @@
   margin-left: 7%;
   margin-right: 7%;
 
-  &__header {
+  &__filters_section {
     @include mixins.flex;
     flex-direction: column;
     justify-content: center;

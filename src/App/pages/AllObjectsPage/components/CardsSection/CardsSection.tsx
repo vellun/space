@@ -1,5 +1,6 @@
 import { Card } from "components/";
-import type { AstroObject } from "firestore";
+import { routesConfig } from "config/";
+import type { AstroObject } from "firestore/";
 import { Link } from "react-router";
 
 import styles from "./CardsSection.module.scss";
@@ -12,7 +13,7 @@ export const CardsSection: React.FC<CardsSectionProps> = ({ objects }) => {
   return (
     <div className={styles.section}>
       {objects.map((object) => (
-        <Link to="/">
+        <Link to={routesConfig.astroObjectDetail.create(object.name)}>
           <Card
             title={object.name}
             captionSlot={object.category}

@@ -1,5 +1,6 @@
 @use "styles/variables" as *;
 @use "styles/mixins" as mixins;
+@use "styles/funcs" as funcs;
 
 .text {
   -webkit-box-orient: vertical;
@@ -29,19 +30,19 @@
       @if $i % 2 == 0 {
         &-p-#{$i} {
           font-size: #{$i}px;
+          // font-size: funcs.fluid($i);
+          // font-size: funcs.fluid($i * 1.6);
           line-height: #{$i + 4}px;
         }
       }
     }
     &-title {
-      font-size: 44;
-      line-height: 48;
-      text-align: center;
+      font-size: 44px;
+      line-height: 48px;
     }
 
     &-button {
-      font-size: 16;
-      margin: 0;
+      font-size: 16px;
     }
   }
 

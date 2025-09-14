@@ -18,7 +18,7 @@ export const Text: React.FC<TextProps> = ({
   view,
   tag = "p",
   weight,
-  color,
+  color = "primary",
   maxLines,
   children,
   ...props

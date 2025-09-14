@@ -1,3 +1,4 @@
+import { Header } from "App/components";
 import { CardsSection } from "App/pages/AllObjectsPage/components/CardsSection";
 import { FiltersSection } from "App/pages/AllObjectsPage/components/FiltersSection";
 import line from "assets/icons/filter-section-line.svg";
@@ -28,14 +29,17 @@ export const AllObjectsPage = () => {
   };
 
   return (
-    <div className={styles.page}>
-      <div className={styles.page__header}>
-        <img className={styles.page__line} src={line} alt="Line element" />
-        <FiltersSection className={styles.page__filters} />
+    <div>
+      <Header className={styles.page__header} />
+      <div className={styles.page}>
+        <div className={styles.page__filters_section}>
+          <img className={styles.page__line} src={line} alt="Line element" />
+          <FiltersSection className={styles.page__filters} />
+        </div>
+        <CardsSection objects={objects} />
+        {/* Потом уберу, это для отладки */}
+        <Button onClick={updateDb}>Update db (debug)</Button>
       </div>
-      <CardsSection objects={objects} />
-      {/* Потом уберу, это для отладки */}
-      {/* <Button onClick={updateDb}>Update db (debug)</Button> */}
     </div>
   );
 };

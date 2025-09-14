@@ -1,6 +1,7 @@
 import App from "App/";
 import { AllObjectsPage } from "App/pages/AllObjectsPage";
-import { routesConfig } from "config";
+import { ObjectDetailPage } from "App/pages/ObjectDetailPage";
+import { routesConfig } from "config/";
 import { createHashRouter, Navigate, type RouteObject } from "react-router";
 
 const routes: RouteObject[] = [
@@ -15,6 +16,10 @@ const routes: RouteObject[] = [
       {
         path: routesConfig.astroObjects.mask,
         element: <AllObjectsPage />,
+      },
+      {
+        path: routesConfig.astroObjectDetail.mask,
+        element: <ObjectDetailPage />,
       },
     ],
   },
