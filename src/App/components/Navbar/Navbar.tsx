@@ -1,6 +1,7 @@
 import logoIcon from "assets/icons/logo.svg";
 import cn from "classnames";
 import { Text } from "components/Text";
+import { Link } from "react-router";
 
 import styles from "./Navbar.module.scss";
 
@@ -11,17 +12,17 @@ type NavbarProps = {
 export const Navbar: React.FC<NavbarProps> = ({ className }) => (
   <div className={cn(styles.navbar, className)}>
     <div className={styles.navbar__menu}>
-      <a href="/">
-        <Text view="p-24" weight="medium" color="primary">
+      <Link to="/" className={styles.navbar__menu__link1}>
+        <Text tag="div" view="p-20" weight="medium" color="primary">
           astro objects
         </Text>
-      </a>
-      <img src={logoIcon} alt="Space Logo" />
-      <a href="/">
-        <Text view="p-24" weight="medium" color="primary">
+      </Link>
+      <img src={logoIcon} className={styles.navbar__menu__logo} alt="Space Logo" />
+      <Link to="/" className={styles.navbar__menu__link2}>
+        <Text tag="div" view="p-20" weight="medium" color="primary">
           categories
         </Text>
-      </a>
+      </Link>
     </div>
   </div>
 );

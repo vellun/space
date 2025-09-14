@@ -1,3 +1,5 @@
+@use "styles/funcs" as funcs;
+
 $border-radius: 6px;
 
 $loader-l: 60px;
@@ -10,6 +12,10 @@ $space-m: 16px;
 $space-s: 14px;
 $space-xs: 12px;
 $space-xxs: 8px;
+
+$content-margin: funcs.rem(104);
+$elements-margin: funcs.rem(42);
+$elements-margin-s: funcs.rem(16);
 
 $background: #e6e9ef;
 

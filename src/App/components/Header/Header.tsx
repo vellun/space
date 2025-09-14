@@ -1,3 +1,4 @@
+import headerAdaptiveImage from "assets/images/header-image-adaptive-light.png";
 import headerImage from "assets/images/header-image-light.png";
 import cn from "classnames";
 
@@ -9,6 +10,9 @@ type HeaderProps = {
 
 export const Header: React.FC<HeaderProps> = ({ className }) => (
   <div className={cn(styles.header, className)}>
-    <img src={headerImage} alt="Header image" />
+    <picture>
+      <source media="(max-width: 832px)" srcSet={headerAdaptiveImage} />
+      <img className={styles.header__image} src={headerImage} alt="Header image" />
+    </picture>
   </div>
 );

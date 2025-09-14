@@ -7,13 +7,16 @@
 
   &__container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   &__navbar {
     position: absolute;
     top: 0;
+
+    @media (max-width: 832px) {
+      & {
+        position: static;
+      }
+    }
   }
 }

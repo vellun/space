@@ -1,6 +1,8 @@
 @use "styles/variables" as *;
+@use "styles/mixins" as mixins;
 
 .input {
+  @include mixins.inner-shadow;
   border: none;
   height: 100%;
   width: 100%;

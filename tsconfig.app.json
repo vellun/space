@@ -14,7 +14,8 @@
       "styles": ["styles/*"],
       "App": ["App/*"],
       "pages": ["App/pages/*"],
-      "assets": ["assets/*"]
+      "assets": ["assets/*"],
+      "firestore": ["firestore/*"]
     },
 
     "moduleResolution": "bundler",
