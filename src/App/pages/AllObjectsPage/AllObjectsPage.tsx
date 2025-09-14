@@ -3,6 +3,7 @@ import { CardsSection } from "App/pages/AllObjectsPage/components/CardsSection";
 import { FiltersSection } from "App/pages/AllObjectsPage/components/FiltersSection";
 import line from "assets/icons/filter-section-line.svg";
 import { Button } from "components/";
+import { Pagination } from "components/";
 import type { AstroObject } from "firestore/";
 import { getAstroObjects, saveAstroObjects } from "firestore/";
 import { useEffect, useState } from "react";
@@ -40,6 +41,7 @@ export const AllObjectsPage = () => {
         {/* Потом уберу, это для отладки */}
         <Button onClick={updateDb}>Update db (debug)</Button>
       </div>
+      <Pagination />
     </div>
   );
 };
