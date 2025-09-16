@@ -37,7 +37,7 @@ export const ObjectDetailPage = () => {
               {object.category}
             </Text>
           </div>
-          <div className={styles.aa}>
+          <div className={styles["info-container"]}>
             <div className={styles.info}>
               {Object.entries(object.info).map(([key, value]) => (
                 <>

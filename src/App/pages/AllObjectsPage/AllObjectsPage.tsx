@@ -2,10 +2,9 @@ import { Header } from "App/components";
 import { CardsSection } from "App/pages/AllObjectsPage/components/CardsSection";
 import { FiltersSection } from "App/pages/AllObjectsPage/components/FiltersSection";
 import line from "assets/icons/filter-section-line.svg";
-import { Button } from "components/";
 import { Pagination } from "components/";
 import type { AstroObject } from "firestore/";
-import { getAstroObjects, saveAstroObjects } from "firestore/";
+import { getAstroObjects } from "firestore/";
 import { useEffect, useState } from "react";
 
 import styles from "./AllObjectsPage.module.scss";
@@ -20,15 +19,6 @@ export const AllObjectsPage = () => {
     fetchObjects();
   }, []);
 
-  const updateDb = async () => {
-    try {
-      await saveAstroObjects();
-      console.log("Астрономические объекты успешно сохранены!");
-    } catch (error) {
-      console.error("Ошибка при сохранении:", error);
-    }
-  };
-
   return (
     <div>
       <Header className={styles.page__header} />
@@ -38,8 +28,6 @@ export const AllObjectsPage = () => {
           <FiltersSection className={styles.page__filters} />
         </div>
         <CardsSection objects={objects} />
-        {/* Потом уберу, это для отладки */}
-        <Button onClick={updateDb}>Update db (debug)</Button>
       </div>
       <Pagination />
     </div>

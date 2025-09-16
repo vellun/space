@@ -5,13 +5,7 @@
   margin: 0 auto;
   min-height: 100vh;
 
-  &__container {
-    // position: relative;
-  }
-
   &__navbar {
-    // z-index: 1;
-    // position: absolute;
     top: 0;
 
     @media (max-width: 832px) {

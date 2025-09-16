@@ -30,8 +30,6 @@
       @if $i % 2 == 0 {
         &-p-#{$i} {
           font-size: #{$i}px;
-          // font-size: funcs.fluid($i);
-          // font-size: funcs.fluid($i * 1.6);
           line-height: #{$i + 4}px;
         }
       }

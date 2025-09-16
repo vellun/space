@@ -59,13 +59,7 @@ export const Card: React.FC<CardProps> = ({
         </div>
         <img className={styles.card__image} src={image} alt="Card image" />
 
-        <Text
-          // className={cn(styles.card__title)}
-          weight="normal"
-          view="p-18"
-          color="primary"
-          maxLines={3}
-        >
+        <Text weight="normal" view="p-18" color="primary" maxLines={3}>
           {subtitle}
         </Text>
       </div>
