@@ -1,0 +1,40 @@
+@use "styles/variables" as *;
+@use "styles/mixins" as mixins;
+
+.page {
+  position: relative;
+
+  margin-left: 7%;
+  margin-right: 7%;
+
+  &__filters_section {
+    @include mixins.flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -6px;
+    margin-bottom: $elements-margin;
+
+    height: 140px;
+  }
+
+  &__line {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__filters {
+    position: absolute;
+  }
+
+  &__filters-container {
+    @include mixins.flex;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1440px) {
+  .page__line {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+@use "styles/variables" as *;
+
+.layout {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+
+  &__navbar {
+    top: 0;
+
+    @media (max-width: 832px) {
+      & {
+        position: static;
+      }
+    }
+  }
+}

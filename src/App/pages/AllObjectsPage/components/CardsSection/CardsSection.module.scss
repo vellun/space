@@ -1,0 +1,23 @@
+@use "styles/variables" as *;
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: $elements-margin;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1350px) {
+  .section {
+    grid-template-columns: repeat(2, 360px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 876px) {
+  .section {
+    grid-template-columns: 360px;
+    justify-content: center;
+  }
+}

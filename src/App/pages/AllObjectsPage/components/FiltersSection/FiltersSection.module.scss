@@ -1,0 +1,23 @@
+@use "styles/mixins" as mixins;
+@use "styles/variables" as *;
+
+.section {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 59.6% auto;
+  gap: 11%;
+
+  &__search {
+    @include mixins.flex;
+
+    justify-content: space-between;
+    gap: $space-l;
+  }
+}
+
+@media (max-width: 832px) {
+  .section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}

@@ -1,0 +1,23 @@
+@use "styles/variables" as *;
+
+.header {
+  height: 521px;
+  width: 100%;
+  margin-bottom: $elements-margin;
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 832px) {
+  .header {
+    height: auto;
+
+    &__image {
+      height: auto;
+    }
+  }
+}

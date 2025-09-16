@@ -7,4 +7,8 @@ export const routesConfig = {
     mask: "/astro-objects",
     create: () => "/astro-objects",
   },
+  astroObjectDetail: {
+    mask: "/astro-objects/:objectName",
+    create: (objectName: string) => `/astro-objects/${objectName}`,
+  },
 };
