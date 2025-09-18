@@ -23,7 +23,7 @@ export const AllObjectsPage = () => {
     <div>
       <Header className={styles.page__header} />
       <div className={styles.page}>
-        <div className={styles.page__filters_section}>
+        <div className={styles["page__filters-section"]}>
           <img className={styles.page__line} src={line} alt="Line element" />
           <FiltersSection className={styles.page__filters} />
         </div>

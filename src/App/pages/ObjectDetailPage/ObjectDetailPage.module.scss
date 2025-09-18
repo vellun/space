@@ -1,4 +1,5 @@
 @use "styles/variables" as *;
+@use "styles/adaptive" as *;
 @use "styles/mixins" as mixins;
 
 .page {
@@ -62,7 +63,7 @@
   margin-bottom: $elements-margin;
 }
 
-@media (max-width: 540px) {
+@include breakpoint(xs) {
   .info {
     grid-template-columns: 1fr 1.15fr;
     column-gap: $elements-margin-s;
@@ -73,7 +74,7 @@
   }
 }
 
-@media (max-width: 962px) {
+@include breakpoint(l) {
   .page {
     margin: 5%;
   }
@@ -85,7 +86,7 @@
   .info {
     margin-bottom: $elements-margin-s;
   }
-  .aa {
+  .info-container {
     justify-content: center;
   }
   .page__top-container {

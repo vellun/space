@@ -1,15 +1,16 @@
 @use "styles/variables" as *;
+@use "styles/adaptive" as *;
 @use "styles/mixins" as mixins;
 @use "styles/funcs" as funcs;
 
 .container {
-  @include mixins.flex;
+  @include mixins.flex-center-y;
   justify-content: center;
   margin-bottom: 22px;
 }
 
 .pagination {
-  @include mixins.flex;
+  @include mixins.flex-center-y;
 
   justify-content: space-between;
 
@@ -42,7 +43,7 @@
     width: 42px;
     height: 100%;
 
-    @media (max-width: funcs.rem(480)) {
+    @include breakpoint(xxs) {
       & {
         width: funcs.rem(38);
       }

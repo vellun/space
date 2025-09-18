@@ -26,7 +26,7 @@
   }
 
   &__body {
-    @include mixins.flex;
+    @include mixins.flex-center-y;
     flex-direction: column;
     padding: 30px;
     margin: 0;
@@ -37,7 +37,7 @@
   }
 
   &__footer {
-    @include mixins.flex;
+    @include mixins.flex-center-y;
 
     margin-top: $space-l;
     justify-content: space-between;

@@ -1,5 +1,6 @@
 @use "styles/variables" as *;
 @use "styles/mixins" as mixins;
+@use "styles/adaptive" as *;
 
 .page {
   position: relative;
@@ -7,8 +8,8 @@
   margin-left: 7%;
   margin-right: 7%;
 
-  &__filters_section {
-    @include mixins.flex;
+  &__filters-section {
+    @include mixins.flex-center-y;
     flex-direction: column;
     justify-content: center;
     margin-top: -6px;
@@ -26,14 +27,9 @@
   &__filters {
     position: absolute;
   }
-
-  &__filters-container {
-    @include mixins.flex;
-    height: 100%;
-  }
 }
 
-@media (max-width: 1440px) {
+@include breakpoint(xxl) {
   .page__line {
     display: none;
   }

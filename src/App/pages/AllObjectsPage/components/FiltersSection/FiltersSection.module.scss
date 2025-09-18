@@ -1,5 +1,6 @@
 @use "styles/mixins" as mixins;
 @use "styles/variables" as *;
+@use "styles/adaptive" as *;
 
 .section {
   display: grid;
@@ -8,14 +9,14 @@
   gap: 11%;
 
   &__search {
-    @include mixins.flex;
+    @include mixins.flex-center-y;
 
     justify-content: space-between;
     gap: $space-l;
   }
 }
 
-@media (max-width: 832px) {
+@include breakpoint(s) {
   .section {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;

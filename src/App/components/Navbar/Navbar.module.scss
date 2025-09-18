@@ -1,8 +1,9 @@
 @use "styles/variables" as *;
+@use "styles/adaptive" as *;
 @use "styles/mixins" as mixins;
 
 .navbar {
-  @include mixins.flex;
+  @include mixins.flex-center-y;
   width: 100%;
   justify-content: center;
 
@@ -17,11 +18,8 @@
   }
 }
 
-@media (max-width: 540px) {
-  .navbar__menu {
-    flex-direction: column;
-    gap: $elements-margin-s;
-
+@include breakpoint(xs) {
+  .navbar {
     &__link1 {
       order: 2;
     }
@@ -30,6 +28,11 @@
       margin-top: $elements-margin-s;
     }
 
-    margin-bottom: $elements-margin-s;
+    &__menu {
+      flex-direction: column;
+      gap: $elements-margin-s;
+
+      margin-bottom: $elements-margin-s;
+    }
   }
 }

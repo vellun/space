@@ -1,4 +1,5 @@
 @use "styles/variables" as *;
+@use "styles/adaptive" as *;
 
 .section {
   display: grid;
@@ -8,14 +9,14 @@
   margin-bottom: 40px;
 }
 
-@media (max-width: 1350px) {
+@include breakpoint(xl) {
   .section {
     grid-template-columns: repeat(2, 360px);
     justify-content: center;
   }
 }
 
-@media (max-width: 876px) {
+@include breakpoint(m) {
   .section {
     grid-template-columns: 360px;
     justify-content: center;

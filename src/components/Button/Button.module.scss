@@ -2,7 +2,7 @@
 @use "styles/mixins" as mixins;
 
 .button {
-  @include mixins.flex;
+  @include mixins.flex-center-y;
 
   justify-content: space-between;
   cursor: pointer;

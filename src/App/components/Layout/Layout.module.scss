@@ -1,4 +1,5 @@
 @use "styles/variables" as *;
+@use "styles/adaptive" as *;
 
 .layout {
   max-width: 1440px;
@@ -8,7 +9,7 @@
   &__navbar {
     top: 0;
 
-    @media (max-width: 832px) {
+    @include breakpoint(s) {
       & {
         position: static;
       }
