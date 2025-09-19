@@ -20,6 +20,10 @@ export const CardsSection: React.FC<CardsSectionProps> = ({ objects, meta }) => 
     return <div>An error occured</div>;
   }
 
+  if (objects.length === 0) {
+    return <div>Asto objects not found</div>;
+  }
+
   return (
     <div className={styles.section}>
       {objects.map((object) => (

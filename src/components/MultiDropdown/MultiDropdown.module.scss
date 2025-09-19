@@ -18,6 +18,10 @@
       width: 100%;
       top: calc(100% + 8px);
 
+      &__item-text {
+        color: inherit;
+      }
+
       &__item {
         @include mixins.flex-center-y;
 
@@ -31,6 +35,10 @@
           &:hover {
             color: $text-secondary;
           }
+        }
+
+        &:hover {
+          color: $text-secondary;
         }
       }
     }

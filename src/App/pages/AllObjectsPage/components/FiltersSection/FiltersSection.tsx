@@ -4,10 +4,11 @@ import { Button, Input, MultiDropdown } from "components/";
 import { type Option } from "components/MultiDropdown";
 import { astroObjectsCategories } from "config/";
 import { observer } from "mobx-react-lite";
-import type { AllObjectsStore } from "store";
+import type { AllObjectsStore } from "store/AllObjectsStore";
 import type { FiltersStore } from "store/FiltersStore";
 
 import styles from "./FiltersSection.module.scss";
+import { useCallback } from "react";
 
 type FiltersProps = {
   className?: string;
@@ -23,6 +24,22 @@ export const FiltersSection: React.FC<FiltersProps> = observer(({ className, sto
     store.fetch();
   };
 
+  const handleSelect = (selectedOptions: Option[]) => {
+    const selectedType = selectedOptions.at(-1)?.key;
+
+    if (selectedType) {
+      store.filters.setFilter(selectedType);
+    }
+
+    // autorun(() => {
+    //   pageStore?.pagination.setPage(1);
+    // });
+  };
+
+  const getTitle = useCallback((values: Option[]) => {
+    return values.length === 0 ? "Select object category" : values.map(({ value }) => value).join(", ");
+  }, []);
+
   return (
     <div className={cn(styles.section, className)}>
       <div className={styles.section__search}>
@@ -34,11 +51,9 @@ export const FiltersSection: React.FC<FiltersProps> = observer(({ className, sto
       <MultiDropdown
         className={styles.section__filter}
         options={astroObjectsCategories}
-        value={[]}
-        onChange={() => ""}
-        getTitle={(value: Option[]) =>
-          value.length !== 0 ? value[0].value : "Select object category"
-        }
+        value={store.filters.filter ? [{ key: store.filters.filter, value: store.filters.filter }] : []}
+        onChange={handleSelect}
+        getTitle={getTitle}
       />
     </div>
   );

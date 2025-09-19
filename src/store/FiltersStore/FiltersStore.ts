@@ -46,4 +46,8 @@ export class FiltersStore {
   get search() {
     return this._search;
   }
+
+  get filter() {
+    return this._filter;
+  }
 }

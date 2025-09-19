@@ -54,7 +54,7 @@ export class QueryParamsStore {
   getApiObjectsParams() {
     return {
       search: this.getParam("search"),
-      // type: this.getParam("filter"),
+      category: this.getParam("filter"),
       // page: this.getParam("page"),
       // perPage: this.getParam("per_page"),
     };

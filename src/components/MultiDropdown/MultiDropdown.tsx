@@ -2,6 +2,8 @@ import classNames from "classnames";
 import { ArrowDownIcon } from "components/icons/ArrowDownIcon";
 import React, { useEffect, useRef, useState } from "react";
 
+import {Text} from "components/"
+
 import { Input } from "../Input";
 
 import styles from "./MultiDropdown.module.scss";
@@ -76,7 +78,7 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = (props: MultiDropdown
           }}
           key={option.key}
         >
-          {option.value}
+          <Text className={styles["dropdown__category-menu__item-text"]} view="p-18" tag="div">{option.value}</Text>
         </div>
       );
     });

@@ -8,6 +8,7 @@ import {
   getDocsFromCache,
   getDocsFromServer,
   query,
+  QueryConstraint,
   where,
 } from "firebase/firestore";
 import type { ObjectsApiRequestParams } from "store/Firestore/types";
@@ -24,10 +25,16 @@ class Firestore {
     const objects: AstroObject[] = [];
     const objectsRef = collection(db, "objects").withConverter(astroObjectConverter);
 
+    let constraints: QueryConstraint[] = []
     let objectsOuery = query(objectsRef)
-    if (params.search) {
-      objectsOuery = query(objectsRef, where("name", "==", params.search))
+    if (params.search !== undefined) {
+      constraints.push(where("name", "==", params.search))
     }
+    if (params.category !== undefined) {
+      constraints.push(where("category", "==", params.category))
+    }
+    
+    objectsOuery = query(objectsRef, ...constraints)
 
     const querySnapshot =
       source === "server"
