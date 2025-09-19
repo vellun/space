@@ -7,8 +7,9 @@ import imagePathVenus from "assets/images/venus.png";
 import { db } from "config/firebase";
 import { doc, setDoc } from "firebase/firestore";
 
+import { astroObjectConverter } from "../store/Firestore/converters";
+
 import { AstroObject, type AstroObjectCategory } from "./AstroObject";
-import { astroObjectConverter } from "./converters";
 
 const objects = [
   {

@@ -5,7 +5,7 @@ import type {
   SnapshotOptions,
 } from "firebase/firestore";
 
-import { AstroObject } from "./AstroObject";
+import { AstroObject } from "./models";
 
 export const astroObjectConverter: FirestoreDataConverter<AstroObject> = {
   toFirestore: (object: AstroObject): DocumentData => {

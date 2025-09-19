@@ -2,7 +2,7 @@ import { db } from "config/firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import type { AstroObject } from "firestore/";
 
-import { astroObjectConverter } from "./converters";
+import { astroObjectConverter } from "../store/Firestore/converters";
 
 export async function getAstroObjects(): Promise<AstroObject[]> {
   const objectsRef = collection(db, "objects").withConverter(astroObjectConverter);

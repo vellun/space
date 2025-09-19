@@ -1,23 +1,22 @@
 import { Header } from "App/components";
 import { CardsSection } from "App/pages/AllObjectsPage/components/CardsSection";
 import { FiltersSection } from "App/pages/AllObjectsPage/components/FiltersSection";
+import { ObjectsProvider, useAllObjectsPageStore } from "App/pages/AllObjectsPage/context";
 import line from "assets/icons/filter-section-line.svg";
 import { Pagination } from "components/";
-import type { AstroObject } from "firestore/";
-import { getAstroObjects } from "firestore/";
-import { useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useQueryParamsStoreInit } from "store/RootStore/hooks";
 
 import styles from "./AllObjectsPage.module.scss";
 
-export const AllObjectsPage = () => {
-  const [objects, setObjects] = useState<AstroObject[]>([]);
+const AllObjectsContentPage = observer(() => {
+  const store = useAllObjectsPageStore();
 
-  useEffect(() => {
-    const fetchObjects = async () => {
-      setObjects(await getAstroObjects());
-    };
-    fetchObjects();
-  }, []);
+  if (store === undefined) {
+    return;
+  }
+
+  useQueryParamsStoreInit(store.query);
 
   return (
     <div>
@@ -25,11 +24,19 @@ export const AllObjectsPage = () => {
       <div className={styles.page}>
         <div className={styles["page__filters-section"]}>
           <img className={styles.page__line} src={line} alt="Line element" />
-          <FiltersSection className={styles.page__filters} />
+          <FiltersSection className={styles.page__filters} store={store} />
         </div>
-        <CardsSection objects={objects} />
+        <CardsSection objects={store.objects} meta={store.meta} />
       </div>
       <Pagination />
     </div>
+  );
+});
+
+export const AllObjectsPage = () => {
+  return (
+    <ObjectsProvider>
+      <AllObjectsContentPage />
+    </ObjectsProvider>
   );
 };

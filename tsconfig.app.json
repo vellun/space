@@ -15,7 +15,9 @@
       "App": ["App/*"],
       "pages": ["App/pages/*"],
       "assets": ["assets/*"],
-      "firestore": ["firestore/*"]
+      "firestore": ["firestore/*"],
+      "store": ["store/*"],
+      "utils": ["utils/*"]
     },
 
     "moduleResolution": "bundler",
