@@ -5,7 +5,6 @@ import { ObjectsProvider, useAllObjectsPageStore } from "App/pages/AllObjectsPag
 import line from "assets/icons/filter-section-line.svg";
 import { Pagination } from "components/";
 import { observer } from "mobx-react-lite";
-import { useQueryParamsStoreInit } from "store/RootStore/hooks";
 
 import styles from "./AllObjectsPage.module.scss";
 
@@ -15,8 +14,6 @@ const AllObjectsContentPage = observer(() => {
   if (store === undefined) {
     return;
   }
-
-  useQueryParamsStoreInit(store.query);
 
   return (
     <div>

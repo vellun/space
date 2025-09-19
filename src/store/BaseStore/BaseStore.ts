@@ -1,4 +1,4 @@
-import { action, makeObservable, observable, reaction } from "mobx";
+import { action, makeObservable, observable, reaction, runInAction, when } from "mobx";
 import { FiltersStore } from "store/FiltersStore";
 import { QueryParamsStore } from "store/RootStore/QueryParamsStore";
 import { Meta } from "utils/meta";
@@ -8,6 +8,8 @@ export abstract class BaseStore {
   filters: FiltersStore;
   meta: Meta = Meta.initial;
   error: string | null = null;
+
+  private _isInitialized = false
 
   constructor() {
     this.query = new QueryParamsStore();
@@ -21,6 +23,16 @@ export abstract class BaseStore {
       init: action,
       fetch: action,
     });
+
+    when(
+      () => this.query.navigate !== null,
+      () => {
+        this.init();
+        runInAction(() => {
+          this._isInitialized = true;
+        });
+      }
+    );
 
     reaction(
       () => ({
@@ -36,7 +48,6 @@ export abstract class BaseStore {
   }
 
   init() {
-    console.log("BASE STORE INIT");
     this.fetch();
   }
 

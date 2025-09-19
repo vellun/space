@@ -9,5 +9,6 @@ export const useQueryParamsStoreInit = (queryStore: QueryParamsStore): void => {
   useEffect(() => {
     queryStore.setNavigate(navigate);
     queryStore.setSearch(search);
+    console.log("111111111111AAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
   }, [search, navigate, queryStore]);
 };

@@ -15,6 +15,10 @@ export class QueryParamsStore {
     return this._params[key];
   }
 
+  get search() {
+    return this._search;
+  }
+
   setSearch(search: string) {
     search = search.startsWith("?") ? search.slice(1) : search;
 

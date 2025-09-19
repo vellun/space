@@ -10,6 +10,7 @@ export class AllObjectsStore extends BaseStore {
   constructor() {
     super();
     makeObservable(this, { _astroObjects: observable });
+    console.log("INIT STOREEE")
   }
 
   async fetch() {
