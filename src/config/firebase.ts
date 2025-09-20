@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { enableMultiTabIndexedDbPersistence, initializeFirestore, getFirestore, persistentLocalCache, persistentMultipleTabManager } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCwOd7PX6An7WhgskfnMRlKqSpfW2vLkLw",
@@ -9,4 +10,10 @@ const firebaseConfig = {
   appId: "1:438802594447:web:184a466e54c73f43e4cefa",
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+initializeFirestore(app, 
+  {localCache: 
+    persistentLocalCache({tabManager: persistentMultipleTabManager()})
+  });
+const db = getFirestore(app);
+export { db };

@@ -1,9 +1,9 @@
-import { Outlet } from "react-router";
+import { Layout } from "App/components/";
 
 function App() {
   return (
     <div>
-      <Outlet />
+      <Layout />
     </div>
   );
 }

@@ -1,0 +1,57 @@
+@use "styles/variables" as *;
+@use "styles/adaptive" as *;
+@use "styles/mixins" as mixins;
+@use "styles/funcs" as funcs;
+
+.container {
+  @include mixins.flex-center-y;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.pagination {
+  @include mixins.flex-center-y;
+
+  justify-content: space-between;
+
+  &__item {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  &__arrow {
+    &:disabled {
+      cursor: auto;
+    }
+  }
+
+  &__arrow-right {
+    transform: rotate(180deg);
+  }
+
+  &__numbers {
+    height: 38px;
+
+    &__text {
+      margin: 0;
+    }
+  }
+
+  &__numbers-item {
+    width: 42px;
+    height: 100%;
+
+    @include breakpoint(xxs) {
+      & {
+        width: funcs.rem(38);
+      }
+    }
+
+    &_active {
+      background-color: $brand;
+      color: $background;
+    }
+  }
+}
