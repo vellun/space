@@ -34,7 +34,7 @@ class Firestore {
       constraints.push(where("name", "==", params.search))
       // constraints.push(where('name', '>=', params.search), where('name', '<=', params.search + '\uf8ff'))
     }
-    if (params.category !== undefined) {
+    if (params.category !== undefined && params.category !== "all") {
       constraints.push(where("category", "==", params.category))
     }
     

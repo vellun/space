@@ -41,8 +41,6 @@ export const CardsSection: React.FC<CardsSectionProps> = observer(({ objects, me
           />
         </Link>)}
 
-      {meta === Meta.loading && <Loader />}
-
       <div ref={fetchRef}>
           {!isEnd && <Loader />}
         </div>

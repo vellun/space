@@ -25,11 +25,6 @@ export class AllObjectsStore extends BaseStore {
     await this.fetchNextPage();
   }
 
-  // async fetchFirstPage() {
-  //   this.reset();
-  //   await this.fetchNextPage();
-  // }
-
   async fetchNextPage() {
     if (this.isEnd) {
       return;

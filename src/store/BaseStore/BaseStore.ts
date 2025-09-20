@@ -39,7 +39,7 @@ export abstract class BaseStore {
         filter: this.query.getParam("filter"),
       }),
       ({ filter }, { filter: previousFilter }) => {
-        if (filter !== previousFilter) {
+        if (this._isInitialized && filter !== previousFilter) {
           this.fetch();
         }
       }
