@@ -37,10 +37,9 @@ export abstract class BaseStore {
     reaction(
       () => ({
         filter: this.query.getParam("filter"),
-        page: this.query.getParam("page"),
       }),
-      ({ filter, page }, { filter: previousFilter, page: previousPage }) => {
-        if (filter !== previousFilter || page !== previousPage) {
+      ({ filter }, { filter: previousFilter }) => {
+        if (filter !== previousFilter) {
           this.fetch();
         }
       }

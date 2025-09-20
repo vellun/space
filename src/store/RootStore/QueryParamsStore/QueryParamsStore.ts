@@ -55,8 +55,7 @@ export class QueryParamsStore {
     return {
       search: this.getParam("search"),
       category: this.getParam("filter"),
-      // page: this.getParam("page"),
-      // perPage: this.getParam("per_page"),
+      perPage: 3,
     };
   }
 }

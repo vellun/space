@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./Loader.module.scss";
 
 export type LoaderProps = {
-  size?: "s" | "m" | "l";
+  size?: "s" | "m" | "l" | "xl";
   className?: string;
 };
 

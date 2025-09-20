@@ -15,6 +15,11 @@
   margin: auto;
 
   &__size {
+    &-xl {
+      width: $loader-xl;
+      height: $loader-xl;
+    }
+
     &-l {
       width: $loader-l;
       height: $loader-l;

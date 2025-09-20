@@ -3,7 +3,6 @@ import { CardsSection } from "App/pages/AllObjectsPage/components/CardsSection";
 import { FiltersSection } from "App/pages/AllObjectsPage/components/FiltersSection";
 import { ObjectsProvider, useAllObjectsPageStore } from "App/pages/AllObjectsPage/context";
 import line from "assets/icons/filter-section-line.svg";
-import { Pagination } from "components/";
 import { observer } from "mobx-react-lite";
 
 import styles from "./AllObjectsPage.module.scss";
@@ -23,9 +22,8 @@ const AllObjectsContentPage = observer(() => {
           <img className={styles.page__line} src={line} alt="Line element" />
           <FiltersSection className={styles.page__filters} store={store} />
         </div>
-        <CardsSection objects={store.objects} meta={store.meta} />
+        <CardsSection objects={store.objects} meta={store.meta} onFetch={store.fetchNextPage} isEnd={store.isEnd} />
       </div>
-      <Pagination />
     </div>
   );
 });
