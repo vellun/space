@@ -1,5 +1,6 @@
 @use "./Roboto/fonts.scss";
 @use "styles/variables" as *;
+@import url("reset.css");
 
 html,
 body {
@@ -13,7 +14,6 @@ body {
 }
 
 * {
-  padding: 0;
   box-sizing: border-box;
 }
 

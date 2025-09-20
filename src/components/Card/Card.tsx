@@ -20,6 +20,7 @@ export type CardProps = {
   onClick?: React.MouseEventHandler;
   /** Слот для действия */
   actionSlot?: React.ReactNode;
+  captionButton?: React.ReactNode;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -31,11 +32,13 @@ export const Card: React.FC<CardProps> = ({
   contentSlot,
   onClick,
   actionSlot,
+  captionButton,
 }: CardProps) => {
   return (
     <div className={cn(styles.card, className)} onClick={onClick}>
       <div className={styles.card__body}>
         <div className={styles.card__caption}>
+          <div className={styles["card__caption-title"]}>
           <Text
             className={cn(styles.card__text, styles.card__title)}
             weight="medium"
@@ -55,7 +58,8 @@ export const Card: React.FC<CardProps> = ({
             >
               {captionSlot}
             </Text>
-          )}
+          )}</div>
+          {captionButton}
         </div>
         <img className={styles.card__image} src={image} alt="Card image" />
 

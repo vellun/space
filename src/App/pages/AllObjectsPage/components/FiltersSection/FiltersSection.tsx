@@ -30,10 +30,6 @@ export const FiltersSection: React.FC<FiltersProps> = observer(({ className, sto
     if (selectedType) {
       store.filters.setFilter(selectedType);
     }
-
-    // autorun(() => {
-    //   pageStore?.pagination.setPage(1);
-    // });
   };
 
   const getTitle = useCallback((values: Option[]) => {

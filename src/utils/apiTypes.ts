@@ -8,6 +8,3 @@ export type ApiResp<SuccessData = unknown, ErrorData = unknown> =
       data: ErrorData;
     };
 
-// export const responce = (data: unknown, isError: boolean) => {
-//   return { isError: isError, data: data };
-// };

@@ -7,6 +7,10 @@ import { Meta } from "utils/meta";
 import { useInfiniteScroll } from "App/pages/AllObjectsPage/hooks/useInfiniteScroll";
 import { observer } from "mobx-react-lite";
 import styles from "./CardsSection.module.scss";
+import { favoritesStore } from "store/RootStore/FavoritesStore";
+
+import { StarIcon } from "components/icons/StarIcon";
+import { StarFillIcon } from "components/icons/StarFillIcon";
 
 type CardsSectionProps = {
   objects: AstroObject[];
@@ -32,14 +36,29 @@ export const CardsSection: React.FC<CardsSectionProps> = observer(({ objects, me
 
   return (
     <div className={styles.section}>
-      {objects.map((object) => <Link to={routesConfig.astroObjectDetail.create(object.name)}>
+      {objects.map((object) => {
+        const isFavorite = favoritesStore.isFavorite(object.name);
+
+        const handleFavoriteClick = (e: React.MouseEvent) => {
+          e.preventDefault();
+
+          favoritesStore.toggleFavorite(object.name);
+        };
+
+        return <Link to={routesConfig.astroObjectDetail.create(object.name)}>
           <Card
             title={object.name}
             captionSlot={object.category}
             subtitle={object.description}
             image={object.imagePath}
+            captionButton={
+              <div onClick={handleFavoriteClick}>
+                {isFavorite ? <StarFillIcon width="20" height="20"/> : <StarIcon width="20" height="20"/>}
+                </div>
+                }
           />
-        </Link>)}
+          
+        </Link>})}
 
       <div ref={fetchRef}>
           {!isEnd && <Loader />}

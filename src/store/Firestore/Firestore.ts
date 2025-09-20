@@ -28,13 +28,13 @@ class Firestore {
     source: "server" | "cache",
     params: ObjectsApiRequestParams
   ): Promise<QuerySnapshot> {
-    const objects: AstroObject[] = [];
     const objectsRef = collection(db, "objects").withConverter(astroObjectConverter);
 
     let constraints: QueryConstraint[] = []
     let objectsOuery = query(objectsRef)
     if (params.search !== undefined) {
       constraints.push(where("name", "==", params.search))
+      // Птом поиск лучше сделаю
       // constraints.push(where('name', '>=', params.search), where('name', '<=', params.search + '\uf8ff'))
     }
     if (params.category !== undefined && params.category !== "all") {

@@ -1,2 +1,0 @@
-export { useQueryParamsStoreInit } from "./useQueryParamsStoreInit";
-

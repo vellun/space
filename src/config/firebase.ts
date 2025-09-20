@@ -11,7 +11,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-// enableMultiTabIndexedDbPersistence(db);
 initializeFirestore(app, 
   {localCache: 
     persistentLocalCache({tabManager: persistentMultipleTabManager()})
