@@ -21,7 +21,7 @@ export abstract class BaseStore {
       meta: observable,
       setMeta: action,
       init: action,
-      fetch: action,
+      fetch: action.bound,
     });
 
     when(

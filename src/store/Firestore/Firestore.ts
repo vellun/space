@@ -3,7 +3,10 @@ import { FirebaseError } from "firebase/app";
 import {
   collection,
   doc,
+  DocumentSnapshot,
   getDoc,
+  getDocFromCache,
+  getDocFromServer,
   getDocs,
   getDocsFromCache,
   getDocsFromServer,
@@ -54,12 +57,20 @@ class Firestore {
         : await getDocsFromCache(objectsOuery);
 
     return querySnapshot
+  }
 
-    // querySnapshot.forEach((doc) => {
-    //   objects.push(doc.data());
-    // });
+  private async _getObjectSnapshot(
+    source: "server" | "cache",
+    objectName: string
+  ): Promise<DocumentSnapshot> {
+    const objectRef = doc(db, "objects", objectName).withConverter(astroObjectConverter);
 
-    // return objects;
+    const querySnapshot =
+      source === "server"
+      ? await getDocFromServer(objectRef)
+      : await getDocFromCache(objectRef);
+
+    return querySnapshot
   }
 
   async getAstroObjects(params: ObjectsApiRequestParams): Promise<ApiResp<QuerySnapshot<AstroObject>>> {
@@ -77,11 +88,20 @@ class Firestore {
     }
   }
 
-  async getAstroObject(objectName: string): Promise<AstroObject> {
-    const objectRef = doc(db, "objects", objectName).withConverter(astroObjectConverter);
-    const objectSnap = await getDoc(objectRef);
-
-    return objectSnap.data()!;
+  async getAstroObject(objectName: string): Promise<ApiResp<AstroObject>> {
+    try {
+      const objectSnap = await this._getObjectSnapshot("server", objectName);
+      
+      return { isError: false, data: objectSnap.data() };
+    } catch (e) {
+      if (e instanceof FirebaseError && e.code === "unavailable") {
+        const snapshot = await this._getObjectSnapshot("cache", objectName);
+        if (!snapshot.exists()) {
+          return { isError: false, data: snapshot.data() };
+        }
+      }
+      return { isError: true, data: e };
+    }
   }
 }
 

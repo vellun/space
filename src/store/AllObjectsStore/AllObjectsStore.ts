@@ -1,5 +1,5 @@
 import type { QueryDocumentSnapshot } from "firebase/firestore";
-import { makeObservable, observable, runInAction } from "mobx";
+import { action, makeObservable, observable, runInAction } from "mobx";
 import { BaseStore } from "store/BaseStore";
 import { firebaseStore } from "store/Firestore";
 import type { AstroObject } from "store/Firestore/models";
@@ -15,9 +15,8 @@ export class AllObjectsStore extends BaseStore {
 
   constructor() {
     super();
-    makeObservable(this, { _astroObjects: observable });
-
-    this.fetchNextPage = this.fetchNextPage.bind(this);
+    makeObservable(this, { _astroObjects: observable, 
+      fetchNextPage: action.bound });
   }
 
   async fetch() {

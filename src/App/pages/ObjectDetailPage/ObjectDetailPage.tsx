@@ -1,23 +1,31 @@
+import { ObjectProvider, useObjectPageStore } from "App/pages/ObjectDetailPage/context";
 import { Text } from "components/Text";
-import { getAstroObject, type AstroObject } from "firestore/";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Meta } from "utils/meta";
 
+import { Loader } from "components/";
+import { observer } from "mobx-react-lite";
 import styles from "./ObjectDetailPage.module.scss";
 
-export const ObjectDetailPage = () => {
-  const { objectName } = useParams();
-  const [object, setObject] = useState<AstroObject>();
+export const ObjectDetailPageContent = observer(() => {
+  const store = useObjectPageStore();
 
-  useEffect(() => {
-    const fetchObject = async () => {
-      setObject(await getAstroObject(objectName!));
-    };
-    fetchObject();
-  }, [objectName]);
+  if (store === undefined) {
+    return;
+  }
+
+  if (store.meta === Meta.loading) {
+    return <Loader size="xl"/>;
+  }
+  
+  if (store.meta === Meta.error) {
+    return <div>An error occured</div>;
+  }
+
+  const object = store.object;
 
   if (!object) {
-    return;
+    return <div>Asto object not found</div>;
   }
 
   return (
@@ -63,5 +71,19 @@ export const ObjectDetailPage = () => {
         {object.description}
       </Text>
     </div>
+  );
+});
+
+export const ObjectDetailPage = () => {
+  const { objectName } = useParams<{ objectName: string }>();
+
+  if (!objectName) {
+    return
+  }
+
+  return (
+    <ObjectProvider objectName={objectName}>
+      <ObjectDetailPageContent />
+    </ObjectProvider>
   );
 };
